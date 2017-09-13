@@ -31,6 +31,8 @@ services:
       - HUBOT_AUTH_ADMIN=ec2-user,root
       - HUBOT_AWS_REGION=us-east-1
       - HUBOT_AWS_DEBUG=1
+      #- HUBOT_LOG_LEVEL=debug
+      #- NODE_DEBUG=module
   # you can add more scripts as you'd like here, they need to be installable by npm
       #- EXTERNAL_SCRIPTS=hubot-help,hubot-seen,hubot-links,hubot-diagnostics,hubot-google,hubot-reddit,hubot-bofh,hubot-bookmark,hubot-shipit,hubot-maps,hubot-aws,hubot-auth
   # this is used to expose the hubot port for notifications on the host on port 3001, e.g. for hubot-jenkins-notifier
