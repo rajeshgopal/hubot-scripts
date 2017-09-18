@@ -17,7 +17,7 @@ year = date.getFullYear()
 #Read AWS account details from ENV
 accountId = process.env.AWS_ACCOUNT_ID
 bucket = process.env.AWS_S3_BILLING_BUCKET
-region = process.env.AWS_REGION_ID
+region = process.env.HUBOT_AWS_REGION
 
 filedata = []
 
