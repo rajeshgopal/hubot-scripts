@@ -2,13 +2,15 @@
 #   Extract AWS Billing Information from S3 Billing reports
 #
 # Commands:
-#   hubot cost report  - Displays actual usage details
+#   mbot cost report  - Retrieves usage details for the current month 
 AWS = require 'aws-sdk'
 S3 = require('aws-sdk').S3
 CSV  = require 'fast-csv'
 
-accountId = '291890047404'
-bucket = 'rg-billing-test'
+date = new Date
+month = d.getMonth()
+accountId = process.env.AWS_ACCOUNT_ID
+bucket = process.env.AWS_S3_BILLING_BUCKET
 region = 'us-east-1'
 filedata = []
 
@@ -19,10 +21,11 @@ module.exports = (robot) ->
     arg1 = msg.match[1]
     #msg.send "Fetching #{arg1 || 'all (name is not provided)'}..."
     download = S3S.ReadStream(new S3,
-      Bucket: 'rg-billing-test'
-      Key: '291890047404-aws-billing-csv-2017-09.csv')
+      Bucket: "#{bucket}"
+      Key: "#{accountId}-aws-billing-csv-#{year}-#{month}.csv")
 
     CSV.fromStream(download, headers: true).on('data', (csvRow) ->
       filedata.push csvRow
     ).on 'end', (line) ->
-      msg.send filedata[filedata.length - 2].TotalCost
+      msg.send filedata[filedata.length - 2].TotalCost filedata[filedata.length - 2].CurrencyCode
+      msg.send fieldata[filedata.length].ItemDescription
