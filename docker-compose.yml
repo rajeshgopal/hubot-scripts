@@ -11,7 +11,7 @@ services:
     image: rocketchat/rocket.chat:latest
     environment:
       - MONGO_URL=mongodb://db:27017/rocketchat
-      - ROOT_URL=https://localhost
+      - ROOT_URL=http://localhost
     ports:
       - 3000:3000
   hubot:
@@ -26,11 +26,12 @@ services:
       - LISTEN_ON_ALL_PUBLIC=true
       - ROCKETCHAT_USER=rocketbot
       - ROCKETCHAT_PASSWORD=rocket123
-      - BOT_NAME=bot
+      - BOT_NAME=mbot
       - GOOGLE_API_KEY=AIzaSyCHqXtrGPeUe2RhhCLxrDhB1x6veJ4IaZw
       - HUBOT_AUTH_ADMIN=ec2-user,root
       - HUBOT_AWS_REGION=us-east-1
       - HUBOT_AWS_DEBUG=1
+      - AWS_ACCOUNT_ID=291890047404
       #- HUBOT_LOG_LEVEL=debug
       #- NODE_DEBUG=module
   # you can add more scripts as you'd like here, they need to be installable by npm
