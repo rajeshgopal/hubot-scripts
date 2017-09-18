@@ -32,6 +32,7 @@ services:
       - HUBOT_AWS_REGION=us-east-1
       - HUBOT_AWS_DEBUG=1
       - AWS_ACCOUNT_ID=291890047404
+      - AWS_S3_BILLING_BUCKET=rg-billing-test
       #- HUBOT_LOG_LEVEL=debug
       #- NODE_DEBUG=module
   # you can add more scripts as you'd like here, they need to be installable by npm
