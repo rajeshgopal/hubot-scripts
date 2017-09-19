@@ -41,4 +41,4 @@ services:
     ports:
       - 3001:8080
     volumes:
-      ./scripts:/home/hubot/scripts
+      - ./scripts:/home/hubot/scripts
