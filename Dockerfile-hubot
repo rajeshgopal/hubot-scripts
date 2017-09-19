@@ -27,7 +27,7 @@ RUN chown hubot:hubot -R /home/hubot/node_modules/hubot-rocketchat
 USER hubot
 
 # Added aws-sdk npm install to fix package issue through external scripts 
-RUN npm install aws-sdk round-to
+RUN npm install aws-sdk round-to fast-csv s3-streams
 
 RUN cd /home/hubot/node_modules/hubot-rocketchat && \
 	npm install && \
